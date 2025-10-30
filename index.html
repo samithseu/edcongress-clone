@@ -601,12 +601,15 @@
     <!-- END -->
 
     <!-- CAROUSEL SECTION -->
-    <section x-data="emblaCarousel()" class="bg-foreground/5 embla py-20">
+    <section
+      x-data="emblaCarousel()"
+      class="bg-foreground/5 embla py-20 overflow-x-hidden"
+    >
       <div class="space-y-8">
         <h3 class="text-title">សកម្មភាព និងបច្ចុប្បន្នភាព</h3>
         <!-- carousel -->
         <div class="embla">
-          <div x-ref="emblaNode" class="embla__viewport overflow-hidden">
+          <div x-ref="emblaNode" class="embla__viewport">
             <div class="embla__container">
               <template x-for="item in Array.from(Array(6).keys())">
                 <a

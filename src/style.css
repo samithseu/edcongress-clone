@@ -39,6 +39,16 @@
 @utility scroll-width-thin {
   scrollbar-width: thin;
 }
+@utility mask-both-side-* {
+  --_length: calc(theme("spacing") * --value(integer));
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black var(--_length),
+    black calc(100% - var(--_length)),
+    transparent 100%
+  );
+}
 
 .text-title {
   @apply font-title text-foreground text-center font-semibold text-xl @2xl:text-2xl @4xl:text-3xl @4xl:font-bold;
@@ -48,16 +58,16 @@
   @apply flex gap-4;
 }
 .embla__slide {
-  @apply border rounded-2xl border-foreground/20 p-4 bg-background space-y-4 grow-0 shrink-0 basis-full @[48rem]/section:basis-[calc((100%-(1rem))/2)] @[64rem]/section:basis-[calc((100%-(1rem*2))/3)] min-w-0;
+  @apply border-2 rounded-2xl border-foreground/10 transition-colors duration-200 hover:border-primary hover:[&_img]:scale-105 shadow-sm p-4 bg-background space-y-4 grow-0 shrink-0 basis-full @[48rem]/section:basis-[calc((100%-(1rem))/2)] @[64rem]/section:basis-[calc((100%-(1rem*2))/3)] min-w-0;
 }
 .news-card-image {
   @apply aspect-[5.3/3.6] overflow-hidden rounded-md;
   & img {
-    @apply object-cover w-full h-full object-top brightness-100 saturate-105;
+    @apply object-cover w-full h-full object-top brightness-100 saturate-105 transition-[scale] duration-600;
   }
 }
 .news-card-info {
-  @apply space-y-2 [&_p]:text-sm @4xl:[&_p]:text-[1rem] [&_p]:line-clamp-3;
+  @apply space-y-2 [&_p]:text-sm @2xl:[&_p]:text-[0.938rem] @4xl:[&_p]:text-[1rem] [&_p]:text-foreground/95 [&_p]:line-clamp-3;
 }
 .news-card-info-date {
   @apply flex gap-1.5 items-center [&_svg]:size-3.5 text-foreground/90;
@@ -72,7 +82,7 @@
   }
 }
 .embla__buttons {
-  @apply *:border-2 *:rounded-full [&_*:where(svg)]:size-6 @4xl:[&_*:where(svg)]:size-9 *:cursor-pointer flex items-center justify-end gap-2 *:text-foreground *:p-1 *:bg-background *:hover:bg-primary *:hover:text-background *:transition-colors *:duration-300 *:disabled:text-foreground/30 *:disabled:cursor-not-allowed *:disabled:bg-transparent w-fit;
+  @apply *:border-2 *:rounded-full [&_*:where(svg)]:size-6 @4xl:[&_*:where(svg)]:size-9 *:cursor-pointer flex items-center justify-end gap-2 *:text-foreground *:p-1 *:bg-background *:hover:bg-primary *:hover:text-background *:not-disabled:hover:border-primary *:transition-colors *:duration-300 *:disabled:text-foreground/30 *:disabled:cursor-not-allowed *:disabled:bg-transparent w-fit;
 }
 .view-all {
   @apply text-primary font-semibold font-title text-sm @4xl:text-lg px-4 py-2 border rounded-lg transition-colors duration-300 bg-primary/5 hover:bg-primary hover:text-background;

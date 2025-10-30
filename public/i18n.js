@@ -13,8 +13,8 @@ document.addEventListener("alpine:init", () => {
       km: {
         title:
           "សន្និបាតបូកសរុបលទ្ធផលការងារ អប់រំ យុវជន\nនិងកីឡា ឆ្នាំសិក្សា ២០២៤-២០២៥ និង\nទិសដៅឆ្នាំសិក្សា ២០២៥-២០២៦",
-        km_option: "ខ្មែរ",
-        en_option: "អង់គ្លេស",
+        km_option: "ភាសាខ្មែរ",
+        en_option: "ភាសាអង់គ្លេស",
         footer: "រៀបចំដោយ Wiki School, POSCAR Digital Co., Ltd",
       },
     },
