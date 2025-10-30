@@ -38,10 +38,10 @@
             <h1
               x-data
               x-text="$store.lang.langs[$store.lang.selected].title"
-              class="font-title text-pretty text-foreground text-center font-semibold text-xl @2xl:text-2xl @4xl:text-3xl @4xl:font-bold @4xl:text-left"
+              class="text-balance text-title @4xl:text-left!"
             ></h1>
             <h2
-              class="text-center text-primary font-semibold @4xl:text-left text-lg @4xl:text-xl"
+              class="text-center text-balance text-primary font-semibold @4xl:text-left text-lg @4xl:text-xl"
             >
               ក្រោមប្រធានបទ
               «អភិវឌ្ឍមូលធនមនុស្សឆ្ពោះទៅសម្រេចចក្ខុវិស័យកម្ពុជាឆ្នាំ២០៥០»
@@ -602,51 +602,76 @@
 
     <!-- CAROUSEL SECTION -->
     <section x-data="emblaCarousel()" class="bg-foreground/5 embla py-20">
-      <div>
+      <div class="space-y-8">
+        <h3 class="text-title">សកម្មភាព និងបច្ចុប្បន្នភាព</h3>
+        <!-- carousel -->
         <div class="embla">
           <div x-ref="emblaNode" class="embla__viewport overflow-hidden">
             <div class="embla__container">
-              <div class="embla__slide">
-                <div>1</div>
-              </div>
-              <div class="embla__slide">
-                <div>2</div>
-              </div>
-              <div class="embla__slide">
-                <div>3</div>
-              </div>
-              <div class="embla__slide">
-                <div>4</div>
-              </div>
-              <div class="embla__slide">
-                <div>5</div>
-              </div>
-              <div class="embla__slide">
-                <div>6</div>
-              </div>
-              <div class="embla__slide">
-                <div>7</div>
-              </div>
-              <div class="embla__slide">
-                <div>8</div>
-              </div>
-              <div class="embla__slide">
-                <div>9</div>
-              </div>
-              <div class="embla__slide">
-                <div>10</div>
-              </div>
-              <div class="embla__slide">
-                <div>11</div>
-              </div>
-              <div class="embla__slide">
-                <div>12</div>
-              </div>
+              <template x-for="item in Array.from(Array(6).keys())">
+                <a
+                  href="#"
+                  aria-describedby="news-content"
+                  class="embla__slide"
+                >
+                  <!-- news image -->
+                  <div class="news-card-image">
+                    <img
+                      src="/src/assets/imgs/sample-news-card.jpg"
+                      alt="News card"
+                    />
+                  </div>
+                  <!-- news info -->
+                  <div class="news-card-info">
+                    <!-- date -->
+                    <div class="news-card-info-date">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                      >
+                        <g
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        >
+                          <path
+                            d="M16 14v2.2l1.6 1M16 2v4m5 1.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5M3 10h5m0-8v4"
+                          />
+                          <circle cx="16" cy="16" r="6" />
+                        </g>
+                      </svg>
+                      <h4 class="text-sm">24-កុម្ភៈ-2025</h4>
+                    </div>
+                    <!-- news content -->
+                    <p id="news-content">
+                      រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                      ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                      រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+                    </p>
+                  </div>
+                </a>
+              </template>
             </div>
           </div>
         </div>
 
+        <!-- carousel controls -->
         <div class="embla__controls">
+          <!-- dots navigation -->
+          <div class="embla__dots">
+            <template x-for="(dot, index) in scrollSnaps" :key="index">
+              <button
+                :class="index === selectedIndex && 'active'"
+                @click="scrollTo(index)"
+              ></button>
+            </template>
+          </div>
+
+          <!-- scroll next & previous buttons -->
           <div class="embla__buttons">
             <button
               @click="scrollPrev"
@@ -691,6 +716,10 @@
               </svg>
             </button>
           </div>
+        </div>
+        <!-- view all -->
+        <div class="grid place-items-center">
+          <a class="view-all" href="#">មើលទាំងអស់</a>
         </div>
       </div>
     </section>

@@ -8,7 +8,7 @@
   font-style: normal;
 }
 
-@custom-variant is-active (&:where(.active));
+@custom-variant is-active (&:where(.active,:active));
 
 @theme inline {
   --color-foreground: var(--foreground);
@@ -40,12 +40,44 @@
   scrollbar-width: thin;
 }
 
+.text-title {
+  @apply font-title text-foreground text-center font-semibold text-xl @2xl:text-2xl @4xl:text-3xl @4xl:font-bold;
+}
+
 .embla__container {
-  @apply flex gap-4 *:p-8 *:border *:grow-0 *:shrink-0 *:basis-full @[48rem]/section:*:basis-[calc((100%-(1rem))/2)] @[64rem]/section:*:basis-[calc((100%-(1rem*2))/3)] *:min-w-0;
+  @apply flex gap-4;
+}
+.embla__slide {
+  @apply border rounded-2xl border-foreground/20 p-4 bg-background space-y-4 grow-0 shrink-0 basis-full @[48rem]/section:basis-[calc((100%-(1rem))/2)] @[64rem]/section:basis-[calc((100%-(1rem*2))/3)] min-w-0;
+}
+.news-card-image {
+  @apply aspect-[5.3/3.6] overflow-hidden rounded-md;
+  & img {
+    @apply object-cover w-full h-full object-top brightness-100 saturate-105;
+  }
+}
+.news-card-info {
+  @apply space-y-2 [&_p]:text-sm @4xl:[&_p]:text-[1rem] [&_p]:line-clamp-3;
+}
+.news-card-info-date {
+  @apply flex gap-1.5 items-center [&_svg]:size-3.5 text-foreground/90;
+}
+.embla__controls {
+  @apply flex flex-wrap justify-center gap-4 md:gap-0 md:flex-nowrap md:flex-row md:items-start md:justify-between;
+}
+.embla__dots {
+  @apply flex flex-wrap justify-center @4xl:justify-start items-center gap-1.5 w-fit;
+  & * {
+    @apply cursor-pointer w-6 h-2 rounded-full bg-foreground/20 is-active:bg-primary transition-colors duration-200 hover:not-is-active:bg-foreground/40;
+  }
 }
 .embla__buttons {
-  @apply *:border-2 *:rounded-full [&_*:where(svg)]:size-7 *:cursor-pointer flex items-center justify-end gap-2 *:text-foreground mt-4 *:p-1 *:hover:bg-primary *:hover:text-background *:transition-colors *:duration-300 *:disabled:text-foreground/30 *:disabled:cursor-not-allowed *:disabled:bg-transparent;
+  @apply *:border-2 *:rounded-full [&_*:where(svg)]:size-6 @4xl:[&_*:where(svg)]:size-9 *:cursor-pointer flex items-center justify-end gap-2 *:text-foreground *:p-1 *:bg-background *:hover:bg-primary *:hover:text-background *:transition-colors *:duration-300 *:disabled:text-foreground/30 *:disabled:cursor-not-allowed *:disabled:bg-transparent w-fit;
 }
+.view-all {
+  @apply text-primary font-semibold font-title text-sm @4xl:text-lg px-4 py-2 border rounded-lg transition-colors duration-300 bg-primary/5 hover:bg-primary hover:text-background;
+}
+
 .table-container {
   @apply w-full [&_thead_tr_th]:text-left [&_*:where(th,td)]:py-3 [&_*:where(th,td)]:text-foreground scroll-width-thin [&_tr]:border-b [&_tr]:border-foreground/20 [&_*:where(th,td)]:text-sm @4xl:[&_*:where(th,td)]:text-lg overflow-x-auto;
 }
