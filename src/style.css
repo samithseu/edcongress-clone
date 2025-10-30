@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* Inter Khmer Looped font */
+@font-face {
+  font-family: "Inter Khmer Looped";
+  src: url("/assets/fonts/InterKhmerLoopedWeight.ttf");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@custom-variant is-active (&:where(.active));
+
+@theme inline {
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --default-font-family: "Inter Khmer Looped", sans-serif;
+  --font-title: "Kantumruy Pro", sans-serif;
+  --spacing-prefer: 73.25rem;
+}
+
+:root {
+  --foreground: #334155;
+  --background: #ffffff;
+  --primary: #d45915;
+}
+
+@utility con-px-* {
+  width: 100%;
+  margin-inline: auto;
+  max-width: min(
+    100% - calc(calc(var(--spacing) * --value(integer)) * 2),
+    theme("spacing.prefer")
+  );
+}
+@utility scroll-gutter-stable {
+  scrollbar-gutter: stable;
+}
+@utility scroll-width-thin {
+  scrollbar-width: thin;
+}
+
+.embla__container {
+  @apply flex gap-4 *:p-8 *:border *:grow-0 *:shrink-0 *:basis-full @[48rem]/section:*:basis-[calc((100%-(1rem))/2)] @[64rem]/section:*:basis-[calc((100%-(1rem*2))/3)] *:min-w-0;
+}
+.embla__buttons {
+  @apply *:border-2 *:rounded-full [&_*:where(svg)]:size-7 *:cursor-pointer flex items-center justify-end gap-2 *:text-foreground mt-4 *:p-1 *:hover:bg-primary *:hover:text-background *:transition-colors *:duration-300 *:disabled:text-foreground/30 *:disabled:cursor-not-allowed *:disabled:bg-transparent;
+}
+.table-container {
+  @apply w-full [&_thead_tr_th]:text-left [&_*:where(th,td)]:py-3 [&_*:where(th,td)]:text-foreground scroll-width-thin [&_tr]:border-b [&_tr]:border-foreground/20 [&_*:where(th,td)]:text-sm @4xl:[&_*:where(th,td)]:text-lg overflow-x-auto;
+}
+.brief-table-info {
+  @apply flex items-center justify-between [&_*:has(svg)_svg]:size-5 *:text-primary *:font-semibold *:text-sm @4xl:*:text-lg;
+}
+.speaker-card {
+  @apply border border-foreground/20 flex gap-4 p-4 w-full h-fit items-start rounded-2xl shadow-sm shadow-foreground/5 relative after:absolute after:right-4 after:-top-3 after:content-[attr(data-title)] after:text-primary after:text-nowrap after:px-3 after:py-0 after:border after:border-foreground/20 after:bg-background after:rounded-2xl after:font-semibold hover:after:bg-primary hover:after:text-background after:transition-colors after:duration-300 [&_*:where(img)]:cursor-pointer;
+}
+.lang-dd-item {
+  @apply px-2 lg:py-1.5 py-2 w-full flex items-center rounded-md transition-colors text-left text-foreground hover:bg-primary/15 focus-visible:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer [&:has(img)_img]:size-6 gap-2;
+}
+
+/* Prevents the modal from "flashing" on page load before Alpine hides it */
+[x-cloak] {
+  @apply hidden!;
+}
+
+.thumbnail {
+  @apply w-[200px] h-[150px] object-cover border-2 m-2 cursor-pointer duration-200 ease-in-out transition-all;
+  &:hover {
+    @apply scale-[1.05] shadow-[0px_4px_15px_rgba(0,0,0,0.1)];
+  }
+}
+
+/* The full-screen modal backdrop */
+.modal-backdrop {
+  @apply fixed inset-0 z-9990 bg-foreground/80 flex items-center justify-center p-4;
+}
+
+/* The container for the image and close button */
+.modal-content {
+  @apply relative bg-background rounded-lg shadow-[0_10px_25px_rgba(0,0,0,0.4)] max-w-[90vw] max-h-[90vh];
+}
+
+/* The large image inside the modal */
+.modal-image {
+  @apply block max-w-full max-h-[90vh] object-contain rounded-lg;
+}
+
+/* The close 'X' button */
+.modal-close-btn {
+  @apply absolute -top-4 -right-4 z-9991 flex items-center justify-center w-10 h-10 bg-foreground text-background border border-background rounded-full cursor-pointer font-bold text-2xl font-title transition-all duration-200 ease-in-out;
+  &:hover {
+    @apply bg-foreground scale-[1.1];
+  }
+}
+
+/* default styles */
+::selection {
+  @apply bg-primary text-background;
+}
+section,
+.section {
+  @apply @container/section;
+  & > div {
+    @apply con-px-5 @container @[28rem]:w-[80%]!;
+  }
+}
+html {
+  @apply scroll-gutter-stable scroll-width-thin;
+}
