@@ -2,11 +2,16 @@ import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
+  base: "./",
   plugins: [tailwindcss()],
-  publicDir: "public",
   build: {
-    assetsDir: "static",
+    cssMinify: false,
     rollupOptions: {
+      input: {
+        main: "index.html",
+        "each-news": "each-news.html",
+        "all-news": "all-news.html",
+      },
       output: {
         entryFileNames: `[name].js`,
         chunkFileNames: `[name].js`,
