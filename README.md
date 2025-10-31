@@ -4,7 +4,27 @@ This is a clone of the website <https://edcongress.org>. It was asked by a teach
 
 ## Internalization (i18n)
 
-### Add translations for each language
+### 1. Add <a href="dist/alpinejs-cdn.min.js"><b>alpinejs-cdn.min.js</b></a> & <a href="dist/i18n.js"><b>i18n.js</b></a> to HTML file
+
+```diff
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Alpine CDN (small & fast framework) -->
++  <script defer src="/alpinejs-cdn.min.js"></script>
+</head>
+<body>
+
+  <!-- translations -->
++  <script src="/i18n.js"></script>
+</body>
+</html>
+```
+
+### 2. Add translations for each language
 
 Go to <a href="dist/i18n.js"><b>i18n.js</b></a> and add properties for each language:
 
@@ -19,7 +39,7 @@ langs: {
 },
 ```
 
-### Using the translations
+### 3. Using the translations
 
 To use these translations, you just simply add this attribute on any element:
 
