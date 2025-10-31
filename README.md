@@ -1,0 +1,3 @@
+# https://edcongress.org Clone
+
+This is a clone of the website <https://edcongress.org>. It was asked by a teacher to create this...
