@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./moeys_logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoEYS Education Congress 2025 in Cambodia - All News</title>
+    <meta
+      property="og:title"
+      content="MoEYS Education Congress 2025 in Cambodia"
+    />
+    <meta property="og:image" content="./og-image.png" />
+    <meta property="og:site_name" content="Education Congress" />
+    <meta
+      property="og:description"
+      content="MoEYS Education Congress 2025 in Cambodia - All News"
+    />
+
+    <meta
+      property="twitter:title"
+      content="MoEYS Education Congress 2025 in Cambodia - All News"
+    />
+    <meta property="twitter:image" content="/og-image.png" />
+    <meta property="twitter:site" content="Education Congress" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="Education Congress" />
+    <meta
+      name="twitter:description"
+      content="MoEYS Education Congress 2025 in Cambodia - All News"
+    />
+
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link
+      href="https://fonts.bunny.net/css?family=kantumruy-pro:300,400,500,600,700"
+      rel="stylesheet"
+    />
+    <!-- alpine CDN for interactive elements -->
+    <script defer src="./alpinejs-cdn.min.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/css/style.css">
+  </head>
+  <body>
+    <!-- HERO SECTION -->
+    <div
+      id="hero"
+      style="background-image: url('./assets/imgs/hero_all_news.jpg')"
+      class="w-full bg-center bg-cover grid *:[grid-area:1/1]"
+    >
+      <div class="bg-linear-to-b from from-transparent to-black/35"></div>
+      <section class="w-full backdrop-blur-md">
+        <div class="w-full space-y-6 @4xl:space-y-14">
+          <div class="pt-5 flex justify-center items-center">
+            <a href="./" class="w-14 lg:w-28">
+              <img src="./moeys_logo.svg" alt="MoEYS Logo" />
+            </a>
+          </div>
+
+          <div class="news-hero-info space-y-4 pb-8 @2xl:pb-12 @4xl:pb-16">
+            <h1
+              class="text-balance text-title @2xl:py-6 @4xl:py-12 text-background!"
+            >
+              សកម្មភាព និងបច្ចុប្បន្នភាព
+            </h1>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- END -->
+
+    <section id="all-news">
+      <div x-data class="space-y-6 py-12">
+        <template
+          x-for="item in ['news-1', 'news-2', 'news-3','sample-news-card','news-1', 'news-2']"
+        >
+          <a
+            href="each-news.html"
+            aria-describedby="news-content"
+            class="news-card"
+          >
+            <!-- news image -->
+            <div class="news-card-image @2xl:w-56 @4xl:w-64">
+              <img :src="`/src/assets/imgs/${item}.jpg`" alt="News card" />
+            </div>
+            <!-- news info -->
+            <div class="news-card-info">
+              <!-- date -->
+              <div class="news-card-info-date">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <g
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M16 14v2.2l1.6 1M16 2v4m5 1.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5M3 10h5m0-8v4"
+                    />
+                    <circle cx="16" cy="16" r="6" />
+                  </g>
+                </svg>
+                <h4 class="text-sm">26-កុម្ភៈ-2024</h4>
+              </div>
+              <!-- news content -->
+              <h5>
+                រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+              </h5>
+              <p id="news-content">
+                រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+              </p>
+            </div>
+          </a>
+        </template>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="section bg-foreground">
+      <div
+        class="flex flex-wrap justify-center gap-4 @4xl:items-center @4xl:justify-between py-4 text-background"
+      >
+        <h5 class="font-semibold text-sm text-center @4xl:text-left">
+          &copy;
+          <!-- auto update year -->
+          <span x-data="{date: new Date().getFullYear()}" x-text="date"></span>,
+          <span
+            x-data
+            x-text="$store.lang.langs[$store.lang.selected].footer"
+          ></span>
+        </h5>
+        <div class="flex items-center gap-2">
+          <!-- admin link -->
+          <a class="text-sm font-semibold" href="/login.html">Admin</a>
+
+          <!-- language dropdown -->
+          <div class="flex justify-center">
+            <div
+              x-data
+              x-on:keydown.escape.prevent.stop="$store.lang.close($refs.button)"
+              x-id="['dropdown-button']"
+              class="relative"
+            >
+              <button
+                x-ref="button"
+                x-on:click="$store.lang.toggle($refs.button)"
+                :aria-expanded="$store.lang.open"
+                :aria-controls="$id('dropdown-button')"
+                type="button"
+                class="relative flex items-center justify-center py-1 rounded-lg shadow-sm bg-background text-gray-800 border border-gray-200 hover:border-gray-200 px-2"
+              >
+                <template x-if="$store.lang.selected === 'en'">
+                  <img
+                    class="size-6"
+                    src="data:image/svg+xml,%3csvg%20xml:space='preserve'%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20viewBox='0%200%2064%2064'%3e%3cpath%20fill='%232a5f9e'%20d='M22%2060.3V46.5l-10.3%207.6c2.9%202.7%206.4%204.8%2010.3%206.2m20%200c3.9-1.4%207.4-3.5%2010.3-6.2L42%2046.4v13.9M3.7%2042c.3%201%20.7%201.9%201.2%202.9L8.8%2042H3.7m51.5%200l3.9%202.9c.4-.9.8-1.9%201.2-2.9h-5.1'/%3e%3cpath%20fill='%23fff'%20d='M23.5%2038H2.6c.3%201.4.7%202.7%201.1%204h5.1l-3.9%202.9c.8%201.7%201.7%203.2%202.8%204.7L18%2042h4v2l-11.7%208.6l1.4%201.4L22%2046.5v13.8c1.3.5%202.6.8%204%201.1V38h-2.5m37.9%200H38v23.4c1.4-.3%202.7-.7%204-1.1V46.5L52.3%2054c1.4-1.3%202.6-2.7%203.8-4.2L45.4%2042h6.8l6.1%204.5c.3-.5.6-1.1.8-1.6L55.2%2042h5.1c.4-1.3.8-2.6%201.1-4'/%3e%3cpath%20fill='%23ed4c5c'%20d='M7.7%2049.6c.8%201.1%201.6%202.1%202.5%203.1L22%2044.1v-2h-4L7.7%2049.6M45.5%2042l10.7%207.8c.4-.5.7-1%201.1-1.5c.1-.1.1-.2.2-.2c.3-.5.7-1.1%201-1.6L52.2%2042h-6.7'/%3e%3cpath%20fill='%232a5f9e'%20d='M42%203.7v13.8l10.3-7.6C49.4%207.2%2045.9%205.1%2042%203.7m-20%200c-3.9%201.4-7.4%203.5-10.3%206.2L22%2017.6V3.7M60.3%2022c-.3-1-.7-1.9-1.2-2.9L55.2%2022h5.1M8.8%2022l-3.9-2.9c-.4%201-.8%201.9-1.2%202.9h5.1'/%3e%3cpath%20fill='%23fff'%20d='M40.5%2026h20.8c-.3-1.4-.7-2.7-1.1-4h-5.1l3.9-2.9c-.8-1.7-1.7-3.2-2.8-4.7L46%2022h-4v-2l11.7-8.6l-1.4-1.4L42%2017.5V3.7c-1.3-.5-2.6-.8-4-1.1V26h2.5M2.6%2026H26V2.6c-1.4.3-2.7.7-4%201.1v13.8L11.7%2010c-1.4%201.3-2.6%202.7-3.8%204.2L18.6%2022h-6.8l-6.1-4.5c-.3.5-.6%201.1-.8%201.6L8.8%2022H3.7c-.4%201.3-.8%202.6-1.1%204'/%3e%3cg%20fill='%23ed4c5c'%3e%3cpath%20d='M56.3%2014.4c-.8-1.1-1.6-2.1-2.5-3.1L42%2019.9v2h4l10.3-7.5M18.5%2022L7.9%2014.2c-.4.5-.7%201-1.1%201.5c-.1.1-.1.2-.2.2c-.3.5-.7%201.1-1%201.6l6.1%204.5h6.8'/%3e%3cpath%20d='M61.4%2026H38V2.6c-1.9-.4-3.9-.6-6-.6s-4.1.2-6%20.6V26H2.6c-.4%201.9-.6%203.9-.6%206s.2%204.1.6%206H26v23.4c1.9.4%203.9.6%206%20.6s4.1-.2%206-.6V38h23.4c.4-1.9.6-3.9.6-6s-.2-4.1-.6-6'/%3e%3c/g%3e%3c/svg%3e"
+                    alt="EN flag"
+                  />
+                </template>
+                <template x-if="$store.lang.selected === 'km'">
+                  <img
+                    class="size-6"
+                    src="./assets/imgs/km.svg"
+                    alt="KM flag"
+                  />
+                </template>
+                <template x-if="!$store.lang.selected">
+                  <span>Languages</span>
+                </template>
+              </button>
+
+              <div
+                x-ref="panel"
+                x-show="$store.lang.open"
+                x-transition.origin.bottom.right
+                x-on:click.outside="$store.lang.close($refs.button)"
+                :id="$id('dropdown-button')"
+                x-cloak
+                class="absolute bottom-full right-0 min-w-48 rounded-lg shadow-sm mb-2 z-10 origin-bottom-right bg-white p-1.5 outline-none border border-gray-200"
+              >
+                <a
+                  data-value="km"
+                  @click="$store.lang.selected=$el.dataset.value; $store.lang.close($refs.button)"
+                  class="lang-dd-item"
+                >
+                  <img src="./assets/imgs/km.svg" alt="KM flag" />
+                  <span
+                    x-text="$store.lang.langs[$store.lang.selected].km_option"
+                  ></span>
+                </a>
+                <a
+                  data-value="en"
+                  @click="$store.lang.selected=$el.dataset.value; $store.lang.close($refs.button)"
+                  class="lang-dd-item"
+                >
+                  <img src="data:image/svg+xml,%3csvg%20xml:space='preserve'%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20viewBox='0%200%2064%2064'%3e%3cpath%20fill='%232a5f9e'%20d='M22%2060.3V46.5l-10.3%207.6c2.9%202.7%206.4%204.8%2010.3%206.2m20%200c3.9-1.4%207.4-3.5%2010.3-6.2L42%2046.4v13.9M3.7%2042c.3%201%20.7%201.9%201.2%202.9L8.8%2042H3.7m51.5%200l3.9%202.9c.4-.9.8-1.9%201.2-2.9h-5.1'/%3e%3cpath%20fill='%23fff'%20d='M23.5%2038H2.6c.3%201.4.7%202.7%201.1%204h5.1l-3.9%202.9c.8%201.7%201.7%203.2%202.8%204.7L18%2042h4v2l-11.7%208.6l1.4%201.4L22%2046.5v13.8c1.3.5%202.6.8%204%201.1V38h-2.5m37.9%200H38v23.4c1.4-.3%202.7-.7%204-1.1V46.5L52.3%2054c1.4-1.3%202.6-2.7%203.8-4.2L45.4%2042h6.8l6.1%204.5c.3-.5.6-1.1.8-1.6L55.2%2042h5.1c.4-1.3.8-2.6%201.1-4'/%3e%3cpath%20fill='%23ed4c5c'%20d='M7.7%2049.6c.8%201.1%201.6%202.1%202.5%203.1L22%2044.1v-2h-4L7.7%2049.6M45.5%2042l10.7%207.8c.4-.5.7-1%201.1-1.5c.1-.1.1-.2.2-.2c.3-.5.7-1.1%201-1.6L52.2%2042h-6.7'/%3e%3cpath%20fill='%232a5f9e'%20d='M42%203.7v13.8l10.3-7.6C49.4%207.2%2045.9%205.1%2042%203.7m-20%200c-3.9%201.4-7.4%203.5-10.3%206.2L22%2017.6V3.7M60.3%2022c-.3-1-.7-1.9-1.2-2.9L55.2%2022h5.1M8.8%2022l-3.9-2.9c-.4%201-.8%201.9-1.2%202.9h5.1'/%3e%3cpath%20fill='%23fff'%20d='M40.5%2026h20.8c-.3-1.4-.7-2.7-1.1-4h-5.1l3.9-2.9c-.8-1.7-1.7-3.2-2.8-4.7L46%2022h-4v-2l11.7-8.6l-1.4-1.4L42%2017.5V3.7c-1.3-.5-2.6-.8-4-1.1V26h2.5M2.6%2026H26V2.6c-1.4.3-2.7.7-4%201.1v13.8L11.7%2010c-1.4%201.3-2.6%202.7-3.8%204.2L18.6%2022h-6.8l-6.1-4.5c-.3.5-.6%201.1-.8%201.6L8.8%2022H3.7c-.4%201.3-.8%202.6-1.1%204'/%3e%3cg%20fill='%23ed4c5c'%3e%3cpath%20d='M56.3%2014.4c-.8-1.1-1.6-2.1-2.5-3.1L42%2019.9v2h4l10.3-7.5M18.5%2022L7.9%2014.2c-.4.5-.7%201-1.1%201.5c-.1.1-.1.2-.2.2c-.3.5-.7%201.1-1%201.6l6.1%204.5h6.8'/%3e%3cpath%20d='M61.4%2026H38V2.6c-1.9-.4-3.9-.6-6-.6s-4.1.2-6%20.6V26H2.6c-.4%201.9-.6%203.9-.6%206s.2%204.1.6%206H26v23.4c1.9.4%203.9.6%206%20.6s4.1-.2%206-.6V38h23.4c.4-1.9.6-3.9.6-6s-.2-4.1-.6-6'/%3e%3c/g%3e%3c/svg%3e" alt="EN flag" />
+                  <span
+                    x-text="$store.lang.langs[$store.lang.selected].en_option"
+                  ></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- END -->
+
+    <!-- increase & decrease font size -->
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("fontSize", () => ({
+          fontSize: 16,
+          maxSize: 32,
+          minSize: 12,
+          step: 2,
+          increment() {
+            if (this.fontSize <= this.maxSize) {
+              this.fontSize += this.step;
+            }
+          },
+          decrement() {
+            if (this.fontSize >= this.minSize) {
+              this.fontSize -= this.step;
+            }
+          },
+        }));
+      });
+    </script>
+
+    <!-- KHMER - ENGLISH -->
+    <script src="./i18n.js"></script>
+    <!-- carousel -->
+    <script src="./carousel.js"></script>
+    <!-- gallery carousel -->
+    <script src="./gallery-carousel.js"></script>
+  </body>
+</html>
