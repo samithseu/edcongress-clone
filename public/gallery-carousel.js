@@ -2,6 +2,10 @@ document.addEventListener("alpine:init", () => {
   Alpine.data("emblaGalleryCarousel", () => ({
     embla: null,
     isPlaying: true,
+    modalOpen: false,
+    modalImage: "",
+    scrollSnaps: [],
+    selectedIndex: 0,
 
     // initialization
     init() {
@@ -29,7 +33,19 @@ document.addEventListener("alpine:init", () => {
         this.embla.on("autoplay:stop", () => {
           this.isPlaying = false;
         });
+
+        // dot statuses
+        this.updateDotState();
+        this.embla
+          .on("select", this.updateDotState.bind(this))
+          .on("reInit", this.updateDotState.bind(this));
       });
+    },
+
+    scrollTo(index) {
+      this.embla.scrollTo(index);
+      this.embla.plugins().autoplay.stop();
+      this.embla.plugins().autoplay.reset();
     },
 
     prev() {
@@ -48,6 +64,11 @@ document.addEventListener("alpine:init", () => {
 
     pause() {
       this.embla.plugins().autoplay.stop();
+    },
+
+    updateDotState() {
+      this.scrollSnaps = this.embla.scrollSnapList();
+      this.selectedIndex = this.embla.selectedScrollSnap();
     },
   }));
 });
