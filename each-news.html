@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MoEYS Education Congress 2025 in Cambodia - Each News</title>
     <link rel="stylesheet" href="/src/style.css" />
-    <!-- <link rel="stylesheet" href="/src/test.css" /> -->
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link
       href="https://fonts.bunny.net/css?family=kantumruy-pro:300,400,500,600,700"
@@ -17,7 +16,7 @@
     <!-- embla carousel CDN -->
     <script src="/embla-carousel-cdn.umd.js"></script>
     <!-- embla carousel autoplay plugin CDN -->
-    <script src="embla-carousel-autoplay-cdn.umd.js"></script>
+    <script src="/embla-carousel-autoplay-cdn.umd.js"></script>
   </head>
   <body>
     <!-- HERO SECTION -->
@@ -31,7 +30,7 @@
       <div class="w-full space-y-6 @4xl:space-y-14">
         <!-- moeys logo -->
         <div class="pt-5 flex justify-center items-center">
-          <a href="/" class="w-14 lg:w-28">
+          <a href="./" class="w-14 lg:w-28">
             <img src="/moeys_logo.svg" alt="MoEYS Logo" />
           </a>
         </div>
@@ -77,14 +76,19 @@
     <!-- END -->
 
     <section id="gallery-carousel">
-      <div class="space-y-6 py-8">
-        <div x-data="emblaGalleryCarousel()" class="space-y-6">
+      <div class="space-y-6 pt-10 pb-4 @4xl:pb-8 @4xl:pt-16">
+        <div
+          x-data="emblaGalleryCarousel()"
+          @keydown.escape.window="modalOpen = false"
+          class="space-y-6"
+        >
           <div class="embla overflow-x-hidden">
             <div x-ref="emblaNode" class="embla__viewport">
               <div class="embla__gallery_container">
                 <template
                   x-for="item in ['news-1', 'news-2', 'news-3','sample-news-card']"
                 >
+                  <!-- each card (slide) -->
                   <div class="embla__gallery_slide">
                     <img
                       @click="modalOpen = true; modalImage = $event.target.src"
@@ -92,6 +96,7 @@
                       alt="each image"
                     />
                   </div>
+                  <!-- end each card (slide) -->
                 </template>
               </div>
             </div>
@@ -99,7 +104,7 @@
 
           <div class="embla__controls">
             <div class="embla__buttons">
-              <button @click="prev" type="button">
+              <button @click="prev" type="button" :disabled="!canScrollPrev">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -116,7 +121,7 @@
                   />
                 </svg>
               </button>
-              <button @click="next" type="button">
+              <button @click="next" type="button" :disabled="!canScrollNext">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -414,7 +419,10 @@
         <div class="embla">
           <div x-ref="emblaNode" class="embla__viewport">
             <div class="embla__container">
-              <template x-for="item in Array.from(Array(6).keys())">
+              <template
+                x-for="item in ['news-1', 'news-2', 'news-3','sample-news-card','news-1', 'news-2']"
+              >
+                <!-- each card (slide) -->
                 <a
                   href="each-news.html"
                   aria-describedby="news-content"
@@ -423,7 +431,7 @@
                   <!-- news image -->
                   <div class="news-card-image">
                     <img
-                      src="/src/assets/imgs/sample-news-card.jpg"
+                      :src="`/src/assets/imgs/${item}.jpg`"
                       alt="News card"
                     />
                   </div>
@@ -453,6 +461,11 @@
                       <h4 class="text-sm">26-កុម្ភៈ-2024</h4>
                     </div>
                     <!-- news content -->
+                    <h5>
+                      រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                      ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                      រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+                    </h5>
                     <p id="news-content">
                       រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
                       ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
@@ -460,6 +473,7 @@
                     </p>
                   </div>
                 </a>
+                <!-- end each card (slide) -->
               </template>
             </div>
           </div>
@@ -525,7 +539,7 @@
         </div>
         <!-- view all -->
         <div class="grid place-items-center">
-          <a class="view-all" href="#">មើលទាំងអស់</a>
+          <a class="view-all" href="./all-news.html">មើលទាំងអស់</a>
         </div>
       </div>
     </section>

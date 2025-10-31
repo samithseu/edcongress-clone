@@ -3,6 +3,8 @@ document.addEventListener("alpine:init", () => {
     embla: null,
     isPlaying: true,
     modalOpen: false,
+    canScrollPrev: false,
+    canScrollNext: false,
     modalImage: "",
     scrollSnaps: [],
     selectedIndex: 0,
@@ -34,6 +36,12 @@ document.addEventListener("alpine:init", () => {
           this.isPlaying = false;
         });
 
+        // scroll statuses
+        this.updateScrollStatus();
+        this.embla
+          .on("scroll", this.updateScrollStatus.bind(this))
+          .on("reInit", this.updateScrollStatus.bind(this));
+
         // dot statuses
         this.updateDotState();
         this.embla
@@ -47,28 +55,37 @@ document.addEventListener("alpine:init", () => {
       this.embla.plugins().autoplay.stop();
       this.embla.plugins().autoplay.reset();
     },
-
+    // scroll previous
     prev() {
       this.embla.scrollPrev();
       this.embla.plugins().autoplay.stop();
     },
 
+    // scroll next
     next() {
       this.embla.scrollNext();
       this.embla.plugins().autoplay.stop();
     },
-
+    // play autoplay
     play() {
       this.embla.plugins().autoplay.play();
     },
-
+    // pause autoplay
     pause() {
       this.embla.plugins().autoplay.stop();
     },
-
+    // update dot status
     updateDotState() {
       this.scrollSnaps = this.embla.scrollSnapList();
       this.selectedIndex = this.embla.selectedScrollSnap();
+    },
+
+    // update scroll status
+    updateScrollStatus() {
+      if (this.embla) {
+        this.canScrollPrev = this.embla.canScrollPrev();
+        this.canScrollNext = this.embla.canScrollNext();
+      }
     },
   }));
 });
