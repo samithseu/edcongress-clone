@@ -1,10 +1,10 @@
 # https://edcongress.org Clone
 
-This is a clone of the website <https://edcongress.org>. It was asked by a teacher to create this...
+A clone of the website <https://edcongress.org>.
 
 ## Internalization (i18n)
 
-### 1. Add <a href="dist/alpinejs-cdn.min.js"><b>alpinejs-cdn.min.js</b></a> & <a href="dist/i18n.js"><b>i18n.js</b></a> to HTML file
+### 1. Add <a href="dist/alpinejs-cdn.min.js"><b>alpinejs-cdn.min.js</b></a> and <a href="dist/i18n.js"><b>i18n.js</b></a> to HTML file
 
 ```diff
 <!DOCTYPE html>
@@ -41,9 +41,9 @@ langs: {
 
 ### 3. Using the translations
 
-To use these translations, you just simply add this attribute on any element:
+To use these translations, just add `x-text="$store.lang.langs[$store.lang.selected].[PROPERTY]`:
 
 ```diff
-+ <h1 x-text="$store.lang.langs[$store.lang.selected].title">
-</h1>
+<!-- example -->
++ <h1 x-text="$store.lang.langs[$store.lang.selected].title"></h1>
 ```
