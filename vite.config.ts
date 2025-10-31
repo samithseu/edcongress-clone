@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [tailwindcss()],
   build: {
     cssMinify: false,
+    outDir: "docs",
     rollupOptions: {
       input: {
         main: "index.html",
