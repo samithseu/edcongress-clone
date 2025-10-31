@@ -6,7 +6,7 @@ This is a clone of the website <https://edcongress.org>. It was asked by a teach
 
 ### Add translations for each language
 
-Go to `i18n.js` and add properties for each language:
+Go to <a href="dist/i18n.js"><b>i18n.js</b></a> and add properties for each language:
 
 ```diff
 langs: {
