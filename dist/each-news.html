@@ -109,19 +109,42 @@
           <div class="embla overflow-x-hidden">
             <div x-ref="emblaNode" class="embla__viewport">
               <div class="embla__gallery_container">
-                <template
-                  x-for="item in ['news-1', 'news-2', 'news-3','sample-news-card']"
-                >
-                  <!-- each card (slide) -->
-                  <div class="embla__gallery_slide">
-                    <img
-                      @click="modalOpen = true; modalImage = $event.target.src"
-                      :src="`/src/assets/imgs/${item}.jpg`"
-                      alt="each image"
-                    />
-                  </div>
-                  <!-- end each card (slide) -->
-                </template>
+                <!-- each card (slide) -->
+                <div class="embla__gallery_slide">
+                  <img
+                    @click="modalOpen = true; modalImage = $event.target.src"
+                    src="./assets/imgs/news-1.jpg"
+                    alt="each image"
+                  />
+                </div>
+                <!-- end each card (slide) -->
+                <!-- each card (slide) -->
+                <div class="embla__gallery_slide">
+                  <img
+                    @click="modalOpen = true; modalImage = $event.target.src"
+                    src="./assets/imgs/news-2.jpg"
+                    alt="each image"
+                  />
+                </div>
+                <!-- end each card (slide) -->
+                <!-- each card (slide) -->
+                <div class="embla__gallery_slide">
+                  <img
+                    @click="modalOpen = true; modalImage = $event.target.src"
+                    src="./assets/imgs/news-3.jpg"
+                    alt="each image"
+                  />
+                </div>
+                <!-- end each card (slide) -->
+                <!-- each card (slide) -->
+                <div class="embla__gallery_slide">
+                  <img
+                    @click="modalOpen = true; modalImage = $event.target.src"
+                    src="./assets/imgs/sample-news-card.jpg"
+                    alt="each image"
+                  />
+                </div>
+                <!-- end each card (slide) -->
               </div>
             </div>
           </div>
@@ -443,62 +466,303 @@
         <div class="embla">
           <div x-ref="emblaNode" class="embla__viewport">
             <div class="embla__container">
-              <template
-                x-for="item in ['news-1', 'news-2', 'news-3','sample-news-card','news-1', 'news-2']"
+              <!-- each card (slide) -->
+              <a
+                href="each-news.html"
+                aria-describedby="news-content"
+                class="embla__slide"
               >
-                <!-- each card (slide) -->
-                <a
-                  href="each-news.html"
-                  aria-describedby="news-content"
-                  class="embla__slide"
-                >
-                  <!-- news image -->
-                  <div class="news-card-image">
-                    <img
-                      :src="`/src/assets/imgs/${item}.jpg`"
-                      alt="News card"
-                    />
-                  </div>
-                  <!-- news info -->
-                  <div class="news-card-info">
-                    <!-- date -->
-                    <div class="news-card-info-date">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="32"
-                        height="32"
-                        viewBox="0 0 24 24"
+                <!-- news image -->
+                <div class="news-card-image">
+                  <img src="./assets/imgs/news-1.jpg" alt="News card" />
+                </div>
+                <!-- news info -->
+                <div class="news-card-info">
+                  <!-- date -->
+                  <div class="news-card-info-date">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
                       >
-                        <g
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                        >
-                          <path
-                            d="M16 14v2.2l1.6 1M16 2v4m5 1.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5M3 10h5m0-8v4"
-                          />
-                          <circle cx="16" cy="16" r="6" />
-                        </g>
-                      </svg>
-                      <h4 class="text-sm">26-កុម្ភៈ-2024</h4>
-                    </div>
-                    <!-- news content -->
-                    <h5>
-                      រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
-                      ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
-                      រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
-                    </h5>
-                    <p id="news-content">
-                      រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
-                      ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
-                      រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
-                    </p>
+                        <path
+                          d="M16 14v2.2l1.6 1M16 2v4m5 1.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5M3 10h5m0-8v4"
+                        />
+                        <circle cx="16" cy="16" r="6" />
+                      </g>
+                    </svg>
+                    <h4 class="text-sm">26-កុម្ភៈ-2024</h4>
                   </div>
-                </a>
-                <!-- end each card (slide) -->
-              </template>
+                  <!-- news content -->
+                  <h5>
+                    រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                    ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                    រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+                  </h5>
+                  <p id="news-content">
+                    រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                    ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                    រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+                  </p>
+                </div>
+              </a>
+              <!-- end each card (slide) -->
+              <!-- each card (slide) -->
+              <a
+                href="each-news.html"
+                aria-describedby="news-content"
+                class="embla__slide"
+              >
+                <!-- news image -->
+                <div class="news-card-image">
+                  <img src="./assets/imgs/news-2.jpg" alt="News card" />
+                </div>
+                <!-- news info -->
+                <div class="news-card-info">
+                  <!-- date -->
+                  <div class="news-card-info-date">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M16 14v2.2l1.6 1M16 2v4m5 1.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5M3 10h5m0-8v4"
+                        />
+                        <circle cx="16" cy="16" r="6" />
+                      </g>
+                    </svg>
+                    <h4 class="text-sm">26-កុម្ភៈ-2024</h4>
+                  </div>
+                  <!-- news content -->
+                  <h5>
+                    រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                    ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                    រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+                  </h5>
+                  <p id="news-content">
+                    រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                    ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                    រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+                  </p>
+                </div>
+              </a>
+              <!-- end each card (slide) -->
+              <!-- each card (slide) -->
+              <a
+                href="each-news.html"
+                aria-describedby="news-content"
+                class="embla__slide"
+              >
+                <!-- news image -->
+                <div class="news-card-image">
+                  <img src="./assets/imgs/news-3.jpg" alt="News card" />
+                </div>
+                <!-- news info -->
+                <div class="news-card-info">
+                  <!-- date -->
+                  <div class="news-card-info-date">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M16 14v2.2l1.6 1M16 2v4m5 1.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5M3 10h5m0-8v4"
+                        />
+                        <circle cx="16" cy="16" r="6" />
+                      </g>
+                    </svg>
+                    <h4 class="text-sm">26-កុម្ភៈ-2024</h4>
+                  </div>
+                  <!-- news content -->
+                  <h5>
+                    រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                    ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                    រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+                  </h5>
+                  <p id="news-content">
+                    រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                    ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                    រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+                  </p>
+                </div>
+              </a>
+              <!-- end each card (slide) -->
+              <!-- each card (slide) -->
+              <a
+                href="each-news.html"
+                aria-describedby="news-content"
+                class="embla__slide"
+              >
+                <!-- news image -->
+                <div class="news-card-image">
+                  <img
+                    src="./assets/imgs/sample-news-card.jpg"
+                    alt="News card"
+                  />
+                </div>
+                <!-- news info -->
+                <div class="news-card-info">
+                  <!-- date -->
+                  <div class="news-card-info-date">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M16 14v2.2l1.6 1M16 2v4m5 1.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5M3 10h5m0-8v4"
+                        />
+                        <circle cx="16" cy="16" r="6" />
+                      </g>
+                    </svg>
+                    <h4 class="text-sm">26-កុម្ភៈ-2024</h4>
+                  </div>
+                  <!-- news content -->
+                  <h5>
+                    រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                    ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                    រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+                  </h5>
+                  <p id="news-content">
+                    រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                    ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                    រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+                  </p>
+                </div>
+              </a>
+              <!-- end each card (slide) -->
+              <!-- each card (slide) -->
+              <a
+                href="each-news.html"
+                aria-describedby="news-content"
+                class="embla__slide"
+              >
+                <!-- news image -->
+                <div class="news-card-image">
+                  <img src="./assets/imgs/news-1.jpg" alt="News card" />
+                </div>
+                <!-- news info -->
+                <div class="news-card-info">
+                  <!-- date -->
+                  <div class="news-card-info-date">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M16 14v2.2l1.6 1M16 2v4m5 1.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5M3 10h5m0-8v4"
+                        />
+                        <circle cx="16" cy="16" r="6" />
+                      </g>
+                    </svg>
+                    <h4 class="text-sm">26-កុម្ភៈ-2024</h4>
+                  </div>
+                  <!-- news content -->
+                  <h5>
+                    រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                    ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                    រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+                  </h5>
+                  <p id="news-content">
+                    រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                    ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                    រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+                  </p>
+                </div>
+              </a>
+              <!-- end each card (slide) -->
+              <!-- each card (slide) -->
+              <a
+                href="each-news.html"
+                aria-describedby="news-content"
+                class="embla__slide"
+              >
+                <!-- news image -->
+                <div class="news-card-image">
+                  <img src="./assets/imgs/news-2.jpg" alt="News card" />
+                </div>
+                <!-- news info -->
+                <div class="news-card-info">
+                  <!-- date -->
+                  <div class="news-card-info-date">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M16 14v2.2l1.6 1M16 2v4m5 1.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5M3 10h5m0-8v4"
+                        />
+                        <circle cx="16" cy="16" r="6" />
+                      </g>
+                    </svg>
+                    <h4 class="text-sm">26-កុម្ភៈ-2024</h4>
+                  </div>
+                  <!-- news content -->
+                  <h5>
+                    រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                    ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                    រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+                  </h5>
+                  <p id="news-content">
+                    រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                    ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                    រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+                  </p>
+                </div>
+              </a>
+              <!-- end each card (slide) -->
             </div>
           </div>
         </div>
