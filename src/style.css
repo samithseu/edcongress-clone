@@ -57,20 +57,30 @@
 .embla__container {
   @apply flex gap-4;
 }
+.embla__gallery_container {
+  @apply flex gap-0;
+}
+
 .embla__slide {
   @apply border-2 rounded-2xl border-foreground/10 transition-colors duration-200 hover:border-primary hover:[&_img]:scale-105 shadow-sm p-4 bg-background space-y-4 grow-0 shrink-0 basis-full @[48rem]/section:basis-[calc((100%-(1rem))/2)] @[64rem]/section:basis-[calc((100%-(1rem*2))/3)] min-w-0;
+}
+.embla__gallery_slide {
+  @apply grow-0 shrink-0 basis-full min-w-0 aspect-video overflow-hidden rounded-2xl;
+  & img {
+    @apply object-cover w-full h-full object-top brightness-100 saturate-105;
+  }
 }
 .news-card-image {
   @apply aspect-[5.3/3.6] overflow-hidden rounded-md;
   & img {
-    @apply object-cover w-full h-full object-top brightness-100 saturate-105 transition-[scale] duration-600;
+    @apply object-cover w-full h-full object-top brightness-100 saturate-105 transition-[scale] duration-700;
   }
 }
 .news-card-info {
   @apply space-y-2 [&_p]:text-sm @2xl:[&_p]:text-[0.938rem] @4xl:[&_p]:text-[1rem] [&_p]:text-foreground/95 [&_p]:line-clamp-3;
 }
 .news-card-info-date {
-  @apply flex gap-1.5 items-center [&_svg]:size-3.5 text-foreground/90;
+  @apply flex gap-1.5 items-center [&_svg]:size-3.5 text-foreground/70 [&_h4]:font-semibold;
 }
 .embla__controls {
   @apply flex flex-wrap justify-center gap-4 md:gap-0 md:flex-nowrap md:flex-row md:items-start md:justify-between;
@@ -101,6 +111,11 @@
   @apply px-2 lg:py-1.5 py-2 w-full flex items-center rounded-md transition-colors text-left text-foreground hover:bg-primary/15 focus-visible:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer [&:has(img)_img]:size-6 gap-2;
 }
 
+/* EACH NEWS style */
+.news-content-fs-button-container {
+  @apply flex flex-wrap items-center justify-center gap-4;
+}
+
 /* Prevents the modal from "flashing" on page load before Alpine hides it */
 [x-cloak] {
   @apply hidden!;
@@ -113,17 +128,17 @@
   }
 }
 
-/* The full-screen modal backdrop */
+/* full-screen modal backdrop */
 .modal-backdrop {
   @apply fixed inset-0 z-9990 bg-foreground/80 flex items-center justify-center p-4;
 }
 
-/* The container for the image and close button */
+/* container for the image and close button */
 .modal-content {
   @apply relative bg-background rounded-lg shadow-[0_10px_25px_rgba(0,0,0,0.4)] max-w-[90vw] max-h-[90vh];
 }
 
-/* The large image inside the modal */
+/* large image inside the modal */
 .modal-image {
   @apply block max-w-full max-h-[90vh] object-contain rounded-lg;
 }
@@ -137,6 +152,9 @@
 }
 
 /* default styles */
+.btn {
+  @apply flex items-center gap-1 cursor-pointer border-2 px-2 py-1.5 [&_svg]:size-4 @2xl:[&_svg]:size-6 rounded-lg font-semibold text-nowrap text-sm @2xl:text-[1rem] text-foreground/90 transition-[colors_scale] duration-150 hover:not-disabled:bg-primary hover:not-disabled:text-background disabled:text-foreground/50 disabled:cursor-not-allowed hover:not-disabled:border-primary active:not-disabled:scale-90 active:not-disabled:bg-primary active:not-disabled:text-background;
+}
 ::selection {
   @apply bg-primary text-background;
 }

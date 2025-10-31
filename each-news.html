@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/moeys_logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoEYS Education Congress 2025 in Cambodia - Each News</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <!-- <link rel="stylesheet" href="/src/test.css" /> -->
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link
+      href="https://fonts.bunny.net/css?family=kantumruy-pro:300,400,500,600,700"
+      rel="stylesheet"
+    />
+    <!-- alpine CDN for interactive elements -->
+    <script defer src="/alpinejs-cdn.min.js"></script>
+    <!-- embla carousel CDN -->
+    <script src="/embla-carousel-cdn.umd.js"></script>
+    <!-- embla carousel autoplay plugin CDN -->
+    <script src="embla-carousel-autoplay-cdn.umd.js"></script>
+  </head>
+  <body>
+    <!-- HERO SECTION -->
+    <section
+      id="hero"
+      style="
+        background-image: url('/src/assets/imgs/hero_pattern_news_page.png');
+      "
+      class="w-full bg-position-[center_bottom] bg-repeat-round"
+    >
+      <div class="w-full space-y-6 @4xl:space-y-14">
+        <!-- moeys logo -->
+        <div class="pt-5 flex justify-center items-center">
+          <a href="/" class="w-14 lg:w-28">
+            <img src="/moeys_logo.svg" alt="MoEYS Logo" />
+          </a>
+        </div>
+
+        <!-- hero section -->
+        <div class="news-hero-info space-y-4 pb-8">
+          <!-- title -->
+          <h1 class="text-balance text-title @2xl:text-left! text-background!">
+            ពិធីបិទសន្និបាតបូកសរុបការងារអប់រំ យុវជន និងកីឡា ឆ្នាំសិក្សា
+            ២០២៣-២០២៤ និងទិសដៅឆ្នាំសិក្សា ២០២៤-២០២៥ ក្រោមប្រធានបទ
+            "អភិវឌ្ឍមូលធនមនុស្សឆ្ពោះទៅសម្រេចចក្ខុវិស័យកម្ពុជា ឆ្នាំ២០៥០"
+          </h1>
+          <!-- date -->
+          <div
+            class="news-card-info-date @4xl:[&_svg]:size-5! text-background!"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+            >
+              <g
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              >
+                <path
+                  d="M16 14v2.2l1.6 1M16 2v4m5 1.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5M3 10h5m0-8v4"
+                />
+                <circle cx="16" cy="16" r="6" />
+              </g>
+            </svg>
+            <h4 class="text-sm @2xl:text-[1rem] @4xl:text-lg">
+              26-កុម្ភៈ-2024 ម៉ោង 10:10 នាទី
+            </h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END -->
+
+    <section id="gallery-carousel">
+      <div class="space-y-6 py-8">
+        <div x-data="emblaGalleryCarousel()" class="space-y-6">
+          <div class="embla overflow-x-hidden">
+            <div x-ref="emblaNode" class="embla__viewport">
+              <div class="embla__gallery_container">
+                <template
+                  x-for="item in ['news-1', 'news-2', 'news-3','sample-news-card']"
+                >
+                  <div class="embla__gallery_slide">
+                    <img
+                      :src="`/src/assets/imgs/${item}.jpg`"
+                      alt="each image"
+                    />
+                  </div>
+                </template>
+              </div>
+            </div>
+          </div>
+
+          <div class="embla__controls">
+            <div class="embla__buttons">
+              <button @click="prev" type="button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m15 18l-6-6l6-6"
+                  />
+                </svg>
+              </button>
+              <button @click="next" type="button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m9 18l6-6l-6-6"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- play & pause button -->
+            <button class="btn" @click="play" x-show="!isPlaying">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"
+                />
+              </svg>
+            </button>
+            <button class="btn" @click="pause" x-show="isPlaying">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                >
+                  <rect width="5" height="18" x="14" y="3" rx="1" />
+                  <rect width="5" height="18" x="5" y="3" rx="1" />
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS CONTENT SECTION -->
+    <section id="news-content" class="bg-foreground/5">
+      <div x-data="fontSize()" class="w-full py-8 space-y-8">
+        <!-- text zoom -->
+        <div class="news-content-fs-button-container">
+          <button
+            class="btn"
+            @click="decrement"
+            :disabled="fontSize <= minSize"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+            >
+              <g
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21l-4.35-4.35M8 11h6" />
+              </g>
+            </svg>
+            ទំហំអក្សរ
+          </button>
+          <button
+            class="btn"
+            @click="increment"
+            :disabled="fontSize >= maxSize"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+            >
+              <g
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21l-4.35-4.35M11 8v6m-3-3h6" />
+              </g>
+            </svg>
+            ទំហំអក្សរ
+          </button>
+        </div>
+        <!-- actual contents -->
+        <div class="space-y-8">
+          <p
+            class="transition-[font-size] duration-200"
+            :style="`font-size: ${fontSize}px`"
+          >
+            រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤ ឯកឧត្តមបណ្ឌិតសភាចារ្យ
+            ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+            បានអញ្ជើញចូលរួមក្នុងពិធីបិទសន្និបាតបូកសរុបការងារអប់រំ យុវជន និងកីឡា
+            ឆ្នាំសិក្សា ២០២៣-២០២៤ និងលើកទិសដៅការងារឆ្នាំសិក្សា ២០២៤-២០២៥
+            ក្រោមប្រធានបទ "អភិវឌ្ឍមូលធនមនុស្សឆ្ពោះទៅសម្រេចចក្ខុវិស័យកម្ពុជា
+            ឆ្នាំ២០៥០" នៅវិទ្យាស្ថានបច្ចេកវិទ្យាកម្ពុជា
+            ក្រោមអធិបតីភាពដ៏ខ្ពង់ខ្ពស់ សម្តេចមហាបវរធិបតី ហ៊ុន ម៉ាណែត
+            នាយករដ្ឋមន្ត្រី នៃព្រះរាជាណាចក្រកម្ពុជា និងមានការចូលរួមពីសំណាក់
+            ឧបនាយករដ្ឋមន្ត្រី ទេសរដ្ឋមន្ត្រី រដ្ឋមន្ត្រី ឯកឧត្តម លោកជំទាវ
+            ថ្នាក់ដឹកនាំក្រសួងអប់រំ យុវជន និងកីឡា តំណាងក្រសួង/ស្ថាប័ន
+            ដៃគូអភិវឌ្ឍ មន្ត្រីអប់រំគ្រប់លំដាប់ថ្នាក់ មកពី២៥ រាជធានី-ខេត្ត។
+            ជាកិច្ចចាប់ផ្តើម ឯកឧត្តមបណ្ឌិតសភាចារ្យ ឧបនាយករដ្ឋមន្ត្រី
+            បានរាយការណ៍ជូន សម្តេចមហាបវធិបតី នាយករដ្ឋមន្ត្រី
+            ព្រមទាំងអង្គសន្និបាតទាំងមូលអំពី ទី១).សមិទ្ធផលនិងកំណែទម្រង់សំខាន់ៗ
+            ទី២).ការដោះស្រាយសំណូមពររៀនសូត្ររបស់សិស្ស និស្សិត និងយុវជន
+            និងទី៣).ទិសដៅសម្រាប់ឆ្នាំសិក្សាបន្ត។
+            សន្និបាតអប់រំក្នុងរយៈពេល៣ថ្ងៃនេះ ក្រសួងបានជ្រើសរើសប្រធានបទ,
+            បទបង្ហាញ, និងបទអន្តរាគមន៍ដែលមានខ្លឹមសារពាក់ព័ន្ធនឹងអភិបាលកិច្ចអប់រំ
+            ការកែទម្រង់សាលារៀន បរិវត្តកម្មអប់រំឧត្តមសិក្សា
+            និងបរិយាកាសល្អសម្រាប់ការអប់រំពេញមួយជីវិត ស្របតាមវិធានការគន្លឹះទាំង៤
+            ដែលជាអនុសាសន៍ដ៏ថ្លៃថ្លារបស់ សម្តេចមហាបវរធិបតី នាយករដ្ឋមន្ត្រី
+            ដើម្បីបន្តពង្រឹងគុណភាពអប់រំ
+            ឆ្លើយតបទៅនឹងចក្ខុវិស័យអភិវឌ្ឍធនធានមនុស្សរបស់រាជរដ្ឋាភិបាលកម្ពុជា។
+            មានប្រសាសន៍ក្នុងឱកាសនេះដែរ សម្តេចមហាបវរធិបតី នាយករដ្ឋមន្ត្រី
+            បានកោតសរសើរនិងថ្លែងអំណរគុណដល់ថ្នាក់ដឹកនាំ
+            និងមន្ត្រីគ្រប់លំដាប់ថ្នាក់នៃក្រសួងអប់រំ យុវជន និងកីឡា
+            ដែលបានចាត់ចែងអនុវត្តភារកិច្ចការងារប្រកបដោយស្មារតីបុរេសកម្ម
+            ក្នុងការពិនិត្យឡើងវិញលើស្តង់ដាសាលារៀនគំរូ
+            រៀបចំយន្តការចុះជួយគាំទ្រសាលារៀន យន្តការចុះ វាយតម្លៃសាលារៀន
+            យន្តការពិនិត្យតាមដាន ជាពិសេសការធ្វើអាទិភាវូបនីយកម្មថវិកា
+            និងប្រមូលផ្តុំធនធានសម្រាប់គាំទ្រដល់ការអនុវត្តស្តង់ដាសាលារៀនគំរូ
+            ក៏ដូចជាថ្លែងអរគុណ និងវាយតម្លៃខ្ពស់ចំពោះដៃគូអភិវឌ្ឍ
+            អង្គការជាតិ-អន្តរជាតិ និងស្ថាប័នពាក់ព័ន្ធទាំងអស់ ដែលបានចូលរួមសហការ
+            និងផ្តល់ការឧបត្ថម្ភគាំទ្រទាំងសម្ភារៈ ថវិកា និងបច្ចេកទេស។
+            ទន្ទឹមនឹងនេះ សម្តេចមហាបវរធិបតី នាយករដ្ឋមន្ត្រី
+            បានកោតសរសើរដល់លេខាធិការដ្ឋាននៃគណៈកម្មការជាតិជំរុញការអនុវត្តកំណែទម្រង់វិស័យអប់រំ
+            (គ.វ.អ) ដែលបានជ្រើសរើសសាលាបឋមសិក្សា អនុវត្តវិធានការគន្លឹះ គ.វ.អ
+            ក្នុងឆ្នាំទី១
+            និងបានពង្រីកវិសាលភាពជាបន្តបន្ទាប់តាមយុទ្ធសាស្ត្រផ្ការីក។
+            សម្តេចមហាបវរធិបតី នាយករដ្ឋមន្ត្រី
+            បានបង្ហាញការគាំទ្រចំពោះការវាយតម្លៃសាលារៀនទាំង៣កម្រិត
+            ដែលក្រសួងបានជ្រើសរើស និងទទួលស្គាល់ជាសាលារៀនគំរូទាំង១២០សាលា
+            នៅដំណាក់កាលដំបូង និងក្នុងឆ្នាំសិក្សាថ្មីនេះ
+            បានប្រកាសទទួលស្គាល់សាលារៀនគំរូចំនួន១៤៤ បន្ថែមទៀត
+            ដែលជាការទទួលស្គាល់នូវសមិទ្ធផលក្នុងការកែលម្អសាលារៀន
+            លទ្ធផលសិក្សារបស់សិស្ស
+            កិច្ចខិតខំប្រឹងប្រែងរួមគ្នារបស់គណៈគ្រប់គ្រងសាលារៀន គ្រូបង្រៀន
+            សិស្សានុសិស្ស និងគ្រួសារ សហគមន៍ក្នុងការអភិវឌ្ឍសាលារៀន។
+            ការទទួលស្គាល់នេះ នឹងជួយផ្សព្វផ្សាយនូវការប្រតិបត្តិដ៏ល្អ
+            ដែលជាគំរូដល់សាលារៀន ដទៃទៀតឱ្យបន្តខិតខំអភិវឌ្ឍតាមផងដែរ។ សម្ដេចធិបតី
+            នាយករដ្ឋមន្រ្ដី បានបន្តថា
+            ការពង្រឹងគុណភាពអប់រំគ្រប់កម្រិតរាជរដ្ឋាភិបាលបានធ្វើមកច្រើនតាំងពីអាណត្តិមុនៗមកហើយ
+            និងបន្តអនុវត្តជាប្រចាំ ដោយបានគូសបញ្ជាក់ពីយុទ្ធសាស្ត្ររបស់រដ្ឋាភិបាល
+            ក្នុងការបន្តពង្រឹងការអប់រំនៅថ្នាក់មូលដ្ឋានកម្រិតបឋមសិក្សា
+            ដោយផ្ដោតលើកិច្ចការសំខាន់៣៖ ១) ការពង្រឹងអភិបាលកិច្ច
+            និងការងារដឹកនាំបង្រៀន ២) ការពង្រឹងកម្មវិធីសិក្សា និង ៣)
+            ការចូលរួមពីអ្នកអាណាព្យាបាល និងសហគមន៍។
+            រាជរដ្ឋាភិបាលកម្ពុជានឹងបន្តផ្តល់អាទិភាពក្នុងការជ្រើសរើសគ្រូបង្រៀន
+            ទាំងគ្រូបង្រៀន មានក្របខណ្ឌ និងគ្រូបង្រៀនកិច្ចសន្យាបច្ចេកទេស
+            ដើម្បីបំពេញបន្ថែមនូវតម្រូវការគ្រូបង្រៀន និងប្រកបដោយគុណភាព ការកៀរគរ
+            និងការផ្តល់ធនធានបន្ថែមទៀតសម្រាប់គាំទ្រដល់ការ
+            អភិវឌ្ឍសមត្ថភាពគ្រូបង្រៀន, ការអនុវត្តកំណែទម្រង់សាលារៀន, ការអភិវឌ្ឍ
+            និងការលើកកម្ពស់បំណិនសតវត្សរ៍ទី២១ដល់យុវជន,
+            ការអប់រំវិទ្យាសាស្ត្រនិងបច្ចេកវិទ្យ ការជំរុញការអប់រំឌីជីថល
+            កំណែទម្រង់សាលាគរុកោសល្យ, ការលើកកម្ពស់សុខភាពសិក្សា
+            និងការបង្កើតមជ្ឈមណ្ឌលឧត្តមភាពនៅគ្រឹះស្ថានឧត្តមសិក្សា។
+            គួរបញ្ជាក់ដែរថា ក្នុងឱកាសនេះដែរ សម្តេចមហាបវធិបតី
+            នាយករដ្ឋនមន្ត្រីបានផ្តល់កិត្តិយសប្រគល់ជូនពានរង្វាន់ជ័យលាភីនាយកសាលាល្អ
+            គ្រូបង្រៀនល្អ សាលាស្អាត
+            និងបំពាក់គ្រឿងឥស្សរិយយសជូនថ្នាក់ដឹកនាំក្រសួងអប់រំ យុវជន
+            និងកីឡាផងដែរ៕ ២៦ កុម្ភៈ ២០២៥ | រាជធានីភ្នំពេញ
+          </p>
+          <!-- source & reference sections -->
+          <div class="space-y-4">
+            <h5
+              :style="`font-size: ${fontSize*1.2}px;`"
+              class="text-lg font-semibold flex items-center gap-2"
+            >
+              <svg
+                :style="`width:${fontSize*1.2}px;height:${fontSize*1.2}px;`"
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"
+                />
+              </svg>
+              ប្រភព
+            </h5>
+            <hr class="text-foreground" />
+            <!-- all sources & references -->
+            <ul class="list-disc list-inside *:hover:underline">
+              <li :style="`font-size:${fontSize}px;`">
+                <a href="https://www.facebook.com/share/p/18MXTUQ296/"
+                  >តំណលីង ទី១</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END -->
+
+    <!-- CAROUSEL SECTION -->
+    <section
+      x-data="emblaCarousel()"
+      class="bg-background embla py-8 overflow-x-hidden"
+    >
+      <div class="space-y-8">
+        <h3 class="text-title">សកម្មភាព និងបច្ចុប្បន្នភាព</h3>
+        <!-- carousel -->
+        <div class="embla">
+          <div x-ref="emblaNode" class="embla__viewport">
+            <div class="embla__container">
+              <template x-for="item in Array.from(Array(6).keys())">
+                <a
+                  href="each-news.html"
+                  aria-describedby="news-content"
+                  class="embla__slide"
+                >
+                  <!-- news image -->
+                  <div class="news-card-image">
+                    <img
+                      src="/src/assets/imgs/sample-news-card.jpg"
+                      alt="News card"
+                    />
+                  </div>
+                  <!-- news info -->
+                  <div class="news-card-info">
+                    <!-- date -->
+                    <div class="news-card-info-date">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                      >
+                        <g
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        >
+                          <path
+                            d="M16 14v2.2l1.6 1M16 2v4m5 1.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5M3 10h5m0-8v4"
+                          />
+                          <circle cx="16" cy="16" r="6" />
+                        </g>
+                      </svg>
+                      <h4 class="text-sm">26-កុម្ភៈ-2024</h4>
+                    </div>
+                    <!-- news content -->
+                    <p id="news-content">
+                      រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                      ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                      រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+                    </p>
+                  </div>
+                </a>
+              </template>
+            </div>
+          </div>
+        </div>
+
+        <!-- carousel controls -->
+        <div class="embla__controls">
+          <!-- dots navigation -->
+          <div class="embla__dots">
+            <template x-for="(dot, index) in scrollSnaps" :key="index">
+              <button
+                :class="index === selectedIndex && 'active'"
+                @click="scrollTo(index)"
+              ></button>
+            </template>
+          </div>
+
+          <!-- scroll next & previous buttons -->
+          <div class="embla__buttons">
+            <button
+              @click="scrollPrev"
+              type="button"
+              :disabled="!canScrollPrev"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m15 18l-6-6l6-6"
+                />
+              </svg>
+            </button>
+            <button
+              @click="scrollNext"
+              type="button"
+              :disabled="!canScrollNext"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m9 18l6-6l-6-6"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <!-- view all -->
+        <div class="grid place-items-center">
+          <a class="view-all" href="#">មើលទាំងអស់</a>
+        </div>
+      </div>
+    </section>
+    <!-- END -->
+
+    <!-- FOOTER -->
+    <footer class="section bg-foreground">
+      <div
+        class="flex flex-wrap justify-center gap-4 @4xl:items-center @4xl:justify-between py-4 text-background"
+      >
+        <h5 class="font-semibold text-sm text-center @4xl:text-left">
+          &copy;
+          <!-- auto update year -->
+          <span x-data="{date: new Date().getFullYear()}" x-text="date"></span>,
+          <span
+            x-data
+            x-text="$store.lang.langs[$store.lang.selected].footer"
+          ></span>
+        </h5>
+        <div class="flex items-center gap-2">
+          <!-- admin link -->
+          <a class="text-sm font-semibold" href="/login.html">Admin</a>
+
+          <!-- language dropdown -->
+          <div class="flex justify-center">
+            <div
+              x-data
+              x-on:keydown.escape.prevent.stop="$store.lang.close($refs.button)"
+              x-id="['dropdown-button']"
+              class="relative"
+            >
+              <button
+                x-ref="button"
+                x-on:click="$store.lang.toggle($refs.button)"
+                :aria-expanded="$store.lang.open"
+                :aria-controls="$id('dropdown-button')"
+                type="button"
+                class="relative flex items-center justify-center py-1 rounded-lg shadow-sm bg-background text-gray-800 border border-gray-200 hover:border-gray-200 px-2"
+              >
+                <template x-if="$store.lang.selected === 'en'">
+                  <img
+                    class="size-6"
+                    src="/src/assets/imgs/en.svg"
+                    alt="EN flag"
+                  />
+                </template>
+                <template x-if="$store.lang.selected === 'km'">
+                  <img
+                    class="size-6"
+                    src="/src/assets/imgs/km.svg"
+                    alt="KM flag"
+                  />
+                </template>
+                <template x-if="!$store.lang.selected">
+                  <span>Languages</span>
+                </template>
+              </button>
+
+              <div
+                x-ref="panel"
+                x-show="$store.lang.open"
+                x-transition.origin.bottom.right
+                x-on:click.outside="$store.lang.close($refs.button)"
+                :id="$id('dropdown-button')"
+                x-cloak
+                class="absolute bottom-full right-0 min-w-48 rounded-lg shadow-sm mb-2 z-10 origin-bottom-right bg-white p-1.5 outline-none border border-gray-200"
+              >
+                <a
+                  data-value="km"
+                  @click="$store.lang.selected=$el.dataset.value; $store.lang.close($refs.button)"
+                  class="lang-dd-item"
+                >
+                  <img src="/src/assets/imgs/km.svg" alt="KM flag" />
+                  <span
+                    x-text="$store.lang.langs[$store.lang.selected].km_option"
+                  ></span>
+                </a>
+                <a
+                  data-value="en"
+                  @click="$store.lang.selected=$el.dataset.value; $store.lang.close($refs.button)"
+                  class="lang-dd-item"
+                >
+                  <img src="/src/assets/imgs/en.svg" alt="EN flag" />
+                  <span
+                    x-text="$store.lang.langs[$store.lang.selected].en_option"
+                  ></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- END -->
+
+    <!-- increase & decrease font size -->
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("fontSize", () => ({
+          fontSize: 16,
+          maxSize: 32,
+          minSize: 12,
+          step: 2,
+          increment() {
+            if (this.fontSize <= this.maxSize) {
+              this.fontSize += this.step;
+            }
+          },
+          decrement() {
+            if (this.fontSize >= this.minSize) {
+              this.fontSize -= this.step;
+            }
+          },
+        }));
+      });
+    </script>
+
+    <!-- KHMER - ENGLISH -->
+    <script src="/i18n.js"></script>
+    <!-- carousel -->
+    <script src="/carousel.js"></script>
+    <!-- gallery carousel -->
+    <script src="/gallery-carousel.js"></script>
+  </body>
+</html>

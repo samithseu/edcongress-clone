@@ -10,10 +10,10 @@ document.addEventListener("alpine:init", () => {
     init() {
       this.$nextTick(() => {
         this.emblaApi = EmblaCarousel(this.$refs.emblaNode, {
-          watchDrag: false,
+          watchDrag: true,
           slidesToScroll: 1,
           breakpoints: {
-            "(min-width: 48rem)": { slidesToScroll: 2 },
+            "(min-width: 48rem)": { watchDrag: false, slidesToScroll: 2 },
             "(min-width: 64rem)": { slidesToScroll: 3 },
           },
         });
