@@ -26,7 +26,7 @@
       <div class="min-h-dvh w-full space-y-6 @4xl:space-y-14">
         <!-- moeys logo -->
         <div class="pt-5 flex justify-center items-center">
-          <a href="/" class="w-14 lg:w-28">
+          <a href="./" class="w-14 lg:w-28">
             <img src="/moeys_logo.svg" alt="MoEYS Logo" />
           </a>
         </div>
@@ -400,156 +400,36 @@
           @keydown.escape.window="isOpen = false"
           class="grid grid-cols-1 @2xl:grid-cols-2 @4xl:grid-cols-3 gap-6 py-8"
         >
-          <!-- each speaker -->
-          <div data-title="វាគ្មិនកិត្តិយស" class="speaker-card">
-            <!-- profile image -->
-            <div
-              class="max-w-20 min-w-20 w-full aspect-square overflow-hidden rounded-lg"
-            >
-              <img
-                @click="isOpen = true; modalImage = $event.target.src"
-                class="w-full h-full object-cover"
-                src="/src/assets/imgs/profile.png"
-                alt="speaker image"
-              />
-            </div>
-            <!-- speaker name -->
-            <div>
-              <h3
-                class="text-[1rem] @4xl:text-lg font-title font-semibold text-foreground"
+          <template x-for="item in Array.from(Array(9).keys())">
+            <!-- speaker card -->
+            <div data-title="វាគ្មិនកិត្តិយស" class="speaker-card">
+              <!-- profile image -->
+              <div
+                class="max-w-20 min-w-20 w-full aspect-square overflow-hidden rounded-lg"
               >
-                វាគ្មិនកិត្តិយស
-              </h3>
-              <h5 class="text-sm @4xl:text-[1rem] font-medium text-foreground">
-                តួនាទី ឬឋានៈរបស់វាគ្មិន...
-              </h5>
+                <img
+                  @click="isOpen = true; modalImage = $event.target.src"
+                  class="w-full h-full object-cover"
+                  src="/src/assets/imgs/profile.png"
+                  alt="speaker image"
+                />
+              </div>
+              <!-- speaker name -->
+              <div>
+                <h3
+                  class="text-[1rem] @4xl:text-lg font-title font-semibold text-foreground"
+                >
+                  វាគ្មិនកិត្តិយស
+                </h3>
+                <h5
+                  class="text-sm @4xl:text-[1rem] font-medium text-foreground"
+                >
+                  តួនាទី ឬឋានៈរបស់វាគ្មិន...
+                </h5>
+              </div>
             </div>
-          </div>
-          <!-- each speaker -->
-          <div data-title="វាគ្មិនកិត្តិយស" class="speaker-card">
-            <!-- profile image -->
-            <div
-              class="max-w-20 min-w-20 w-full aspect-square overflow-hidden rounded-lg"
-            >
-              <img
-                @click="isOpen = true; modalImage = $event.target.src"
-                class="w-full h-full object-cover"
-                src="/src/assets/imgs/profile.png"
-                alt="speaker image"
-              />
-            </div>
-            <!-- speaker name -->
-            <div>
-              <h3
-                class="text-[1rem] @4xl:text-lg font-title font-semibold text-foreground"
-              >
-                វាគ្មិនកិត្តិយស
-              </h3>
-              <h5 class="text-sm @4xl:text-[1rem] font-medium text-foreground">
-                តួនាទី ឬឋានៈរបស់វាគ្មិន...
-              </h5>
-            </div>
-          </div>
-          <!-- each speaker -->
-          <div data-title="វាគ្មិនកិត្តិយស" class="speaker-card">
-            <!-- profile image -->
-            <div
-              class="max-w-20 min-w-20 w-full aspect-square overflow-hidden rounded-lg"
-            >
-              <img
-                @click="isOpen = true; modalImage = $event.target.src"
-                class="w-full h-full object-cover"
-                src="/src/assets/imgs/profile.png"
-                alt="speaker image"
-              />
-            </div>
-            <!-- speaker name -->
-            <div>
-              <h3
-                class="text-[1rem] @4xl:text-lg font-title font-semibold text-foreground"
-              >
-                វាគ្មិនកិត្តិយស
-              </h3>
-              <h5 class="text-sm @4xl:text-[1rem] font-medium text-foreground">
-                តួនាទី ឬឋានៈរបស់វាគ្មិន...
-              </h5>
-            </div>
-          </div>
-          <!-- each speaker -->
-          <div data-title="វាគ្មិនកិត្តិយស" class="speaker-card">
-            <!-- profile image -->
-            <div
-              class="max-w-20 min-w-20 w-full aspect-square overflow-hidden rounded-lg"
-            >
-              <img
-                @click="isOpen = true; modalImage = $event.target.src"
-                class="w-full h-full object-cover"
-                src="/src/assets/imgs/profile.png"
-                alt="speaker image"
-              />
-            </div>
-            <!-- speaker name -->
-            <div>
-              <h3
-                class="text-[1rem] @4xl:text-lg font-title font-semibold text-foreground"
-              >
-                វាគ្មិនកិត្តិយស
-              </h3>
-              <h5 class="text-sm @4xl:text-[1rem] font-medium text-foreground">
-                តួនាទី ឬឋានៈរបស់វាគ្មិន...
-              </h5>
-            </div>
-          </div>
-          <!-- each speaker -->
-          <div data-title="វាគ្មិនកិត្តិយស" class="speaker-card">
-            <!-- profile image -->
-            <div
-              class="max-w-20 min-w-20 w-full aspect-square overflow-hidden rounded-lg"
-            >
-              <img
-                @click="isOpen = true; modalImage = $event.target.src"
-                class="w-full h-full object-cover"
-                src="/src/assets/imgs/profile.png"
-                alt="speaker image"
-              />
-            </div>
-            <!-- speaker name -->
-            <div>
-              <h3
-                class="text-[1rem] @4xl:text-lg font-title font-semibold text-foreground"
-              >
-                វាគ្មិនកិត្តិយស
-              </h3>
-              <h5 class="text-sm @4xl:text-[1rem] font-medium text-foreground">
-                តួនាទី ឬឋានៈរបស់វាគ្មិន...
-              </h5>
-            </div>
-          </div>
-          <!-- each speaker -->
-          <div data-title="វាគ្មិនកិត្តិយស" class="speaker-card">
-            <!-- profile image -->
-            <div
-              class="max-w-20 min-w-20 w-full aspect-square overflow-hidden rounded-lg"
-            >
-              <img
-                @click="isOpen = true; modalImage = $event.target.src"
-                class="w-full h-full object-cover"
-                src="/src/assets/imgs/profile.png"
-                alt="speaker image"
-              />
-            </div>
-            <!-- speaker name -->
-            <div>
-              <h3
-                class="text-[1rem] @4xl:text-lg font-title font-semibold text-foreground"
-              >
-                វាគ្មិនកិត្តិយស
-              </h3>
-              <h5 class="text-sm @4xl:text-[1rem] font-medium text-foreground">
-                តួនាទី ឬឋានៈរបស់វាគ្មិន...
-              </h5>
-            </div>
-          </div>
+            <!-- end speaker card -->
+          </template>
 
           <!-- modal to preview each speaker image -->
           <template x-teleport="body">
@@ -611,7 +491,10 @@
         <div class="embla">
           <div x-ref="emblaNode" class="embla__viewport">
             <div class="embla__container">
-              <template x-for="item in Array.from(Array(6).keys())">
+              <template
+                x-for="item in ['news-1', 'news-2', 'news-3','sample-news-card','news-1', 'news-2']"
+              >
+                <!-- each card (slide) -->
                 <a
                   href="each-news.html"
                   aria-describedby="news-content"
@@ -620,7 +503,7 @@
                   <!-- news image -->
                   <div class="news-card-image">
                     <img
-                      src="/src/assets/imgs/sample-news-card.jpg"
+                      :src="`/src/assets/imgs/${item}.jpg`"
                       alt="News card"
                     />
                   </div>
@@ -650,6 +533,11 @@
                       <h4 class="text-sm">26-កុម្ភៈ-2024</h4>
                     </div>
                     <!-- news content -->
+                    <h5>
+                      រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
+                      ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
+                      រដ្ឋមន្រ្តីក្រសួងអប់រំ យុវជន និងកីឡា
+                    </h5>
                     <p id="news-content">
                       រាជធានីភ្នំពេញ៖ នារសៀលថ្ងៃទី២៦ ខែកុម្ភៈ ២០២៤
                       ឯកឧត្តមបណ្ឌិតសភាចារ្យ ហង់ជួន ណារ៉ុន ឧបនាយករដ្ឋមន្ត្រី
@@ -657,6 +545,7 @@
                     </p>
                   </div>
                 </a>
+                <!-- end each card (slide) -->
               </template>
             </div>
           </div>
@@ -722,7 +611,7 @@
         </div>
         <!-- view all -->
         <div class="grid place-items-center">
-          <a class="view-all" href="#">មើលទាំងអស់</a>
+          <a class="view-all" href="./all-news.html">មើលទាំងអស់</a>
         </div>
       </div>
     </section>
