@@ -70,6 +70,9 @@
     @apply object-cover w-full h-full object-top brightness-100 saturate-105 cursor-pointer;
   }
 }
+.news-card {
+  @apply border-2 @2xl:border border-foreground/20 grid grid-cols-1 p-4 gap-4 rounded-2xl shadow-sm @xl:grid-cols-2 @2xl:border-foreground/10 @2xl:grid-cols-[auto_1fr] transition-colors duration-200 hover:border-primary hover:[&_img]:scale-105;
+}
 .news-card-image {
   @apply aspect-[5.3/3.6] overflow-hidden rounded-md;
   & img {
@@ -77,7 +80,7 @@
   }
 }
 .news-card-info {
-  @apply space-y-2 [&_p]:text-sm @2xl:[&_p]:text-[0.938rem] @4xl:[&_p]:text-[1rem] [&_p]:text-foreground/95 [&_p]:line-clamp-3;
+  @apply space-y-2 [&_p]:text-sm @2xl:[&_p]:text-[0.938rem] @4xl:[&_p]:text-[1rem] [&_p]:text-foreground/95 [&_p]:line-clamp-3 [&_h5]:line-clamp-2 [&_h5]:font-semibold [&_h5]:text-lg [&_*:where(h5)]:font-title;
 }
 .news-card-info-date {
   @apply flex gap-1.5 items-center [&_svg]:size-3.5 text-foreground/70 [&_h4]:font-semibold;
