@@ -1,4 +1,7 @@
-document.addEventListener("alpine:init", () => {
+import EmblaCarousel from "embla-carousel";
+import Autoplay from "embla-carousel-autoplay";
+
+export function initializeGalleryCarousel(Alpine) {
   Alpine.data("emblaGalleryCarousel", () => ({
     embla: null,
     isPlaying: true,
@@ -14,7 +17,7 @@ document.addEventListener("alpine:init", () => {
       this.$nextTick(() => {
         const viewportNode = this.$refs.emblaNode;
         const plugins = [
-          EmblaCarouselAutoplay({
+          Autoplay({
             delay: 4000,
             stopOnInteraction: true,
           }),
@@ -88,4 +91,4 @@ document.addEventListener("alpine:init", () => {
       }
     },
   }));
-});
+}

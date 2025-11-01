@@ -1,5 +1,4 @@
-document.addEventListener("alpine:init", () => {
-  // Language store for entire site
+export function initializeI18n(Alpine) {
   Alpine.store("lang", {
     selected: "km",
     langs: {
@@ -32,4 +31,4 @@ document.addEventListener("alpine:init", () => {
       focusAfter && focusAfter.focus();
     },
   });
-});
+}

@@ -29,18 +29,11 @@
       name="twitter:description"
       content="MoEYS Education Congress 2025 in Cambodia - Each News"
     />
-    <link rel="stylesheet" href="/src/style.css" />
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link
       href="https://fonts.bunny.net/css?family=kantumruy-pro:300,400,500,600,700"
       rel="stylesheet"
     />
-    <!-- alpine CDN for interactive elements -->
-    <script defer src="/alpinejs-cdn.min.js"></script>
-    <!-- embla carousel CDN -->
-    <script src="/embla-carousel-cdn.umd.js"></script>
-    <!-- embla carousel autoplay plugin CDN -->
-    <script src="/embla-carousel-autoplay-cdn.umd.js"></script>
   </head>
   <body>
     <!-- HERO SECTION -->
@@ -870,14 +863,14 @@
                 <template x-if="$store.lang.selected === 'en'">
                   <img
                     class="size-6"
-                    src="/src/assets/imgs/en.svg"
+                    src="/src/assets/imgs/en.svg?inline"
                     alt="EN flag"
                   />
                 </template>
                 <template x-if="$store.lang.selected === 'km'">
                   <img
                     class="size-6"
-                    src="/src/assets/imgs/km.svg"
+                    src="/src/assets/imgs/km.svg?inline"
                     alt="KM flag"
                   />
                 </template>
@@ -900,7 +893,7 @@
                   @click="$store.lang.selected=$el.dataset.value; $store.lang.close($refs.button)"
                   class="lang-dd-item"
                 >
-                  <img src="/src/assets/imgs/km.svg" alt="KM flag" />
+                  <img src="/src/assets/imgs/km.svg?inline" alt="KM flag" />
                   <span
                     x-text="$store.lang.langs[$store.lang.selected].km_option"
                   ></span>
@@ -910,7 +903,7 @@
                   @click="$store.lang.selected=$el.dataset.value; $store.lang.close($refs.button)"
                   class="lang-dd-item"
                 >
-                  <img src="/src/assets/imgs/en.svg" alt="EN flag" />
+                  <img src="/src/assets/imgs/en.svg?inline" alt="EN flag" />
                   <span
                     x-text="$store.lang.langs[$store.lang.selected].en_option"
                   ></span>
@@ -945,11 +938,6 @@
       });
     </script>
 
-    <!-- KHMER - ENGLISH -->
-    <script src="/i18n.js"></script>
-    <!-- carousel -->
-    <script src="/carousel.js"></script>
-    <!-- gallery carousel -->
-    <script src="/gallery-carousel.js"></script>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>

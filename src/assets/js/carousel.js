@@ -1,4 +1,6 @@
-document.addEventListener("alpine:init", () => {
+import EmblaCarousel from "embla-carousel";
+
+export function initializeCarousel(Alpine) {
   Alpine.data("emblaCarousel", () => ({
     emblaApi: null,
     canScrollPrev: false,
@@ -62,4 +64,4 @@ document.addEventListener("alpine:init", () => {
       }
     },
   }));
-});
+}

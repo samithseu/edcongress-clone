@@ -1024,7 +1024,7 @@
 
 @font-face {
   font-family: Inter Khmer Looped;
-  src: url("../../fonts/InterKhmerLoopedWeight.ttf");
+  src: url("../fonts/InterKhmerLoopedWeight.ttf") format("truetype");
   font-weight: 100 900;
   font-style: normal;
 }

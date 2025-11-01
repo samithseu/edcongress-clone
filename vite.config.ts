@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [tailwindcss()],
   build: {
     cssMinify: false,
-    outDir: "docs",
+    outDir: "dist",
     rollupOptions: {
       input: {
         main: "index.html",
@@ -14,17 +14,19 @@ export default defineConfig({
         "all-news": "all-news.html",
       },
       output: {
-        entryFileNames: `[name].js`,
-        chunkFileNames: `[name].js`,
+        chunkFileNames: `assets/js/[name].js`,
         assetFileNames: ({ name }) => {
           if (/\.(gif|jpe?g|png|svg|webp)$/.test(name ?? "")) {
             return "assets/imgs/[name][extname]";
+          }
+          if (/\.(ttf|otf|eot|woff2?)$/.test(name ?? "")) {
+            return "assets/fonts/[name][extname]";
           }
           if (/\.css$/.test(name ?? "")) {
             return "assets/css/[name][extname]";
           }
           // Default for other assets
-          return "assets/[name][extname]";
+          return "assets/[ext]/[name][extname]";
         },
       },
     },
