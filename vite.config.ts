@@ -5,7 +5,6 @@ export default defineConfig({
   base: "./",
   plugins: [tailwindcss()],
   build: {
-    cssMinify: false,
     outDir: "docs",
     rollupOptions: {
       input: {
