@@ -2,7 +2,7 @@ name: Deploy static content to Pages
 
 on:
   push:
-    branches: ["with-npm"]
+    branches: ["main"]
 
   workflow_dispatch:
 
@@ -25,21 +25,19 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18 # Change this to your project's Node.js version
-          cache: 'npm'
+          node-version: 22
+          cache: "npm"
       - name: Install dependencies
         run: npm install
       - name: Build
-        run: npm run build # This command should generate your 'dist' folder
+        run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # This is the important part!
-          # Upload the 'dist' directory
-          path: './dist' 
-      
+          path: "./dist"
+
   # Deployment job
   deploy:
     environment:
