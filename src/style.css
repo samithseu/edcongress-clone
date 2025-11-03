@@ -67,7 +67,7 @@
 .embla__gallery_slide {
   @apply grow-0 shrink-0 basis-full min-w-0 aspect-video overflow-hidden rounded-2xl;
   & img {
-    @apply object-cover w-full h-full object-top brightness-100 saturate-105 cursor-pointer;
+    @apply object-cover w-full h-full object-top brightness-100 saturate-105 cursor-zoom-in;
   }
 }
 .news-card {
@@ -108,7 +108,7 @@
   @apply flex items-center justify-between [&_*:has(svg)_svg]:size-5 *:text-primary *:font-semibold *:text-sm @4xl:*:text-lg;
 }
 .speaker-card {
-  @apply border border-foreground/20 flex gap-4 p-4 w-full h-fit items-start rounded-2xl shadow-sm shadow-foreground/5 relative after:absolute after:right-4 after:-top-3 after:content-[attr(data-title)] after:text-primary after:text-nowrap after:px-3 after:py-0 after:border after:border-foreground/20 after:bg-background after:rounded-2xl after:font-semibold hover:after:bg-primary hover:after:text-background after:transition-colors after:duration-300 [&_*:where(img)]:cursor-pointer;
+  @apply border border-foreground/20 flex gap-4 p-4 w-full h-fit items-start rounded-2xl shadow-sm shadow-foreground/5 relative after:absolute after:right-4 after:-top-3 after:content-[attr(data-title)] after:text-primary after:text-nowrap after:px-3 after:py-0 after:border after:border-foreground/20 after:bg-background after:rounded-2xl after:font-semibold hover:after:bg-primary hover:after:text-background after:transition-colors after:duration-300 [&_*:where(img)]:cursor-zoom-in;
 }
 .lang-dd-item {
   @apply px-2 lg:py-1.5 py-2 w-full flex items-center rounded-md transition-colors text-left text-foreground hover:bg-primary/15 focus-visible:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer [&:has(img)_img]:size-6 gap-2;
