@@ -1143,7 +1143,7 @@
 }
 
 .embla__gallery_slide img {
-  cursor: pointer;
+  cursor: zoom-in;
   object-fit: cover;
   object-position: top;
   --tw-brightness: brightness(100%);
@@ -1630,7 +1630,7 @@
 }
 
 .speaker-card :where(img) {
-  cursor: pointer;
+  cursor: zoom-in;
 }
 
 .lang-dd-item {
